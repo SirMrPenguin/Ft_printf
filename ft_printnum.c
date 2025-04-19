@@ -15,9 +15,9 @@ int	ft_printnum(int n)
 	}
 	else if (j == 0)
 		return (1);
-	while (k > 0)
+	while (j > 0)
 	{
-		k /= 10;
+		j /= 10;
 		i++;
 	}
 	return (i);
