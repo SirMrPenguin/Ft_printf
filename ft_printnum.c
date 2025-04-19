@@ -6,7 +6,7 @@
 /*   By: joabotel <joabotel@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 16:55:53 by joabotel          #+#    #+#             */
-/*   Updated: 2025/04/19 16:55:54 by joabotel         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:14:02 by joabotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_printnum(int n)
 	if (j < 0)
 	{
 		j = -j;
-		i++;	
+		i++;
 	}
 	else if (j == 0)
 		return (1);

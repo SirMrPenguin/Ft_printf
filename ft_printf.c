@@ -6,13 +6,13 @@
 /*   By: joabotel <joabotel@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 16:55:42 by joabotel          #+#    #+#             */
-/*   Updated: 2025/04/19 16:55:43 by joabotel         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:13:32 by joabotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	ft_check(char *s, int i, va_list ap)
+static int	ft_check(char *s, int i, va_list ap)
 {
 	if (s[i] == 'd' || s[i] == 'i')
 		return (ft_printnum(va_arg(ap, int)));
@@ -21,8 +21,8 @@ static	int	ft_check(char *s, int i, va_list ap)
 	else if (s[i] == 'c')
 		return (ft_printchr(va_arg(ap, int)));
 	else if (s[i] == 'x' || s[i] == 'X')
-		return (ft_printhex(va_arg(ap, unsigned int), \
-				(s[i] > 'X')));
+		return (ft_printhex(va_arg(ap, unsigned int),
+				s[i] == 'x'));
 	return (0);
 }
 
@@ -50,7 +50,7 @@ int	ft_printf(const char *s, ...)
 	va_end(ap);
 	return (count);
 }
-#include <stdio.h>
+/* #include <stdio.h>
 int	main(){
 	char	*str;
 	int	n = -1;
@@ -58,7 +58,7 @@ int	main(){
 	str = "hello world!";
 	ft_printf("%s\n", str);
 	ft_printf("%d\n", n);
-	ft_printf("%x\n", n);
+	ft_printf("%X\n", n);
 	printf("%x\n", n);
 	ft_printf("%c\n", c);
-}
+}  */

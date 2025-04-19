@@ -6,7 +6,7 @@
 /*   By: joabotel <joabotel@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 16:55:50 by joabotel          #+#    #+#             */
-/*   Updated: 2025/04/19 16:57:29 by joabotel         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:14:25 by joabotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,11 @@ int	ft_printhex(unsigned int n, int is_lowercase)
 	int	count;
 
 	count = 0;
-	if (n < 16)
-	{
-		if (is_lowercase)
-			count += write(1, &"0123456789abcdef"[n], 1);
-		else
-			count += write(1, &"0123456789ABCDEF"[n], 1);
-	}
 	if (n >= 16)
-	{
 		count += ft_printhex(n / 16, is_lowercase);
-		count += ft_printhex(n % 16, is_lowercase);
-	}
-	return count;
+	if (is_lowercase)
+		count += write(1, &"0123456789abcdef"[n % 16], 1);
+	else
+		count += write(1, &"0123456789ABCDEF"[n % 16], 1);
+	return (count);
 }
