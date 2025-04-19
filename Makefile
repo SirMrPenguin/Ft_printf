@@ -24,6 +24,8 @@ $(LIBFT): $(LIBFTDIR)
 	$(CC) $(CFLAGS) -o $@ -c $<
 clean :
 	rm -rf $(OBJS)
+	$(MAKE) clean -C $(LIBFTDIR)
 fclean: clean
 	rm -rf $(NAME)
+	$(MAKE) fclean -C $(LIBFTDIR)
 re: fclean all
