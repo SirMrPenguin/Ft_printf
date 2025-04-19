@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnum.c                                      :+:      :+:    :+:   */
+/*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joabotel <joabotel@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 16:55:53 by joabotel          #+#    #+#             */
-/*   Updated: 2025/04/19 16:55:54 by joabotel         ###   ########.fr       */
+/*   Created: 2025/04/19 16:55:50 by joabotel          #+#    #+#             */
+/*   Updated: 2025/04/19 16:57:29 by joabotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printnum(int n)
+int	ft_printhex(unsigned int n, int is_lowercase)
 {
-	int		i;
-	long	j;
+	int	count;
 
-	i = 0;
-	j = n;
-	ft_putnbr_fd(n, 1);
-	if (j < 0)
+	count = 0;
+	if (n < 16)
 	{
-		j = -j;
-		i++;	
+		if (is_lowercase)
+			count += write(1, &"0123456789abcdef"[n], 1);
+		else
+			count += write(1, &"0123456789ABCDEF"[n], 1);
 	}
-	else if (j == 0)
-		return (1);
-	while (j > 0)
+	if (n >= 16)
 	{
-		j /= 10;
-		i++;
+		count += ft_printhex(n / 16, is_lowercase);
+		count += ft_printhex(n % 16, is_lowercase);
 	}
-	return (i);
+	return count;
 }
