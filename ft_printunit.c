@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnum.c                                      :+:      :+:    :+:   */
+/*   ft_printunit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joabotel <joabotel@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/19 16:55:53 by joabotel          #+#    #+#             */
-/*   Updated: 2025/04/22 16:07:21 by joabotel         ###   ########.fr       */
+/*   Created: 2025/04/22 16:06:51 by joabotel          #+#    #+#             */
+/*   Updated: 2025/04/22 16:18:09 by joabotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printnum(int n)
+int	ft_printunit(unsigned int n)
 {
-	int		i;
-	long	j;
+	int		count;
+	char	c;
 
-	i = 0;
-	j = n;
-	ft_putnbr_fd(n, 1);
-	if (j < 0)
+	count = 0;
+	if (n >= 10)
 	{
-		j = -j;
-		i++;
+		count += ft_printunit(n / 10);
+		count += ft_printunit(n % 10);
 	}
-	else if (j == 0)
-		return (1);
-	while (j > 0)
+	if (n < 10)
 	{
-		j /= 10;
-		i++;
+		c = n + '0';
+		count += write(1, &c, 1);
 	}
-	return (i);
+	return (count);
 }

@@ -6,7 +6,7 @@
 /*   By: joabotel <joabotel@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 16:55:47 by joabotel          #+#    #+#             */
-/*   Updated: 2025/04/19 16:55:48 by joabotel         ###   ########.fr       */
+/*   Updated: 2025/04/22 16:54:23 by joabotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 
 int		ft_printf(const char *s, ...);
 int		ft_printnum(int c);
+int		ft_printunit(unsigned int n);
 int		ft_printstr(char *s);
 int		ft_printchr(char c);
 int		ft_printhex(unsigned int n, int base);
-
+int		ft_printptr(unsigned long long n);
 #endif
