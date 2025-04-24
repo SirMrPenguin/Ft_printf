@@ -6,7 +6,7 @@
 /*   By: joabotel <joabotel@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 16:55:47 by joabotel          #+#    #+#             */
-/*   Updated: 2025/04/22 16:54:23 by joabotel         ###   ########.fr       */
+/*   Updated: 2025/04/23 19:37:02 by joabotel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "libft/libft.h"
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdlib.h>
 
 int		ft_printf(const char *s, ...);
 int		ft_printnum(int c);

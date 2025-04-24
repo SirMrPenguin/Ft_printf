@@ -23,8 +23,6 @@ $(NAME): $(OBJS) $(LIBFT)
 
 $(LIBFT): $(LIBFTDIR)
 	$(MAKE) -C $(LIBFTDIR)
-%.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
 clean :
 	rm -rf $(OBJS)
 	$(MAKE) clean -C $(LIBFTDIR)
